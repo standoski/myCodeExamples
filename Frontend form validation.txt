@@ -1,0 +1,37 @@
+If you have a form where your visitors can upload various files and wish to implement a validation form for those files, validation on client side (frontend) that doesn't allow users to go further right after they select the file, below is one simple example with few lines of code and NO JS framework required. 
+
+_(NOTE: If someone wish to upload other types of files and have some minimum knowledge of programming can bypass frontend validation, so always have a backend (server side) validation form, but this one is for good faith users)_
+
+**HTML form:**
+
+`<form action="/upload/" id="upl_image" class="label_normal" enctype="multipart/form-data" method="post" accept-charset="utf-8">`
+
+  `<input type="text" id="fname" class="form-control" name="image_name" title="Title length betwen 5-70 characters (letters (a-z), numbers, spaces, commas and dots)." pattern="[a-zA-Z0-9:,\.\- ]{5,70}" maxlength="70" required value="">`
+
+  `<input type="file" id="uploadFile" class="form-control input-sm" name="file" accept=".jpg,.jpeg" required />`
+
+`</form>`
+
+
+**JS code (nice and simple code of plainJS):**
+
+`<script>`  
+		`const input = document.querySelector('#uploadFile');`  
+		`input.onchange = function(e) {`  
+			`if (((input.files[0].size/1024)/1024) > 4) {`  
+				`alert("Please optimize your image to maximum 4MB!");`  
+				`input.value = "";`  
+				`//this code validates the file size, here the maximum file allowed is 4MB`  
+			`}`  
+			`else if ((/^[a-z0-9\s\,\.\-\_]{5,50}\.(?:jpg|jpeg)$/i.test(input.files[0].name)) == false) {`  
+				`alert("Filename between 5-50 characters (letters (a-z), numbers, spaces, dots, '-' and '_').");`  
+				`input.value = "";`  
+				`//and this one use regex for allow only files that have common characters that defines the name of a file + the extension; this example is for image files`  
+			`}`  
+		`};`  
+`</script>`  
+
+
+Any feedback is welcomed :)
+
+
