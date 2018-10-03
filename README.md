@@ -52,7 +52,7 @@ Any feedback is welcomed :)
 
 For 2-3 months I received daily 4 to 15 SPAM emails via contact form.  
   
-https://uhdwallpapers.org runs on CodeIgniter, but this doesn't matter, because basically is PHP :) and this solution can be adjusted on 
+One of my sites runs on CodeIgniter, but this doesn't matter, because basically is PHP :) and this solution can be adjusted on 
 any PHP environment.
   
 So, one day I read about the "honeypot" spam protection (NOTE: The Google captcha has NO effect in blocking bot spam) and I've adapted  
